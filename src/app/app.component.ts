@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {AppSelectorComponent} from './selector';
 
-import {DataService} from './dataService';
 
 @Component({
   selector: 'app-root',
@@ -28,10 +27,7 @@ export class AppComponent {
     bob: [`Bob.1`, `Bob.2`, `Bob.3`, `Bob.4`, `Bob.5`],
   };
 
-  selectionService = new DataService(
-    this.selectionValuesSource,
-    this.loadedSelectionValues
-  );
+
 
   columnDefs = [
     {
@@ -42,10 +38,6 @@ export class AppComponent {
       editable: true,
       cellEditor: 'lazyLoadingEditor',
       cellEditorParams: {
-        context: {
-          options: ['hello', 'world'],
-          selectionService: this.selectionService
-        }
       }
     },
   ];

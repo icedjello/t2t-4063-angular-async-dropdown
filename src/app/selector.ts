@@ -26,7 +26,6 @@ export class AppSelectorComponent implements ICellEditorAngularComp{
     this.params = params;
     this.value = this.params.value;
     this.key = this.params.data.key;
-    // this.options = this.params.context.selectionService.getValue(this.key);
     this.options = this.optionsService.getOptions(this.key);
   }
 
