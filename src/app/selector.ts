@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {ICellEditorAngularComp} from 'ag-grid-angular';
 import {ICellEditorParams} from 'ag-grid-community';
 
+import {OptionsService} from './Options.service';
 
 @Component({
   selector: 'app-selector',
@@ -15,16 +16,18 @@ import {ICellEditorParams} from 'ag-grid-community';
 export class AppSelectorComponent implements ICellEditorAngularComp{
   private params: ICellEditorParams;
   public value: string;
-  public options: Promise<string[]>;
+  public options: Promise<unknown>;
   public key: string;
 
-  constructor() {
+  constructor(private optionsService: OptionsService) {
+
   }
   agInit(params: ICellEditorParams): void {
     this.params = params;
     this.value = this.params.value;
     this.key = this.params.data.key;
-    this.options = this.params.context.selectionService.getValue(this.key);
+    // this.options = this.params.context.selectionService.getValue(this.key);
+    this.options = this.optionsService.getOptions(this.key);
   }
 
   onChange(event): void {
