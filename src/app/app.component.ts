@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {AppSelectorComponent} from './selector';
 
-
 @Component({
   selector: 'app-root',
   template: `
@@ -16,19 +15,6 @@ import {AppSelectorComponent} from './selector';
   `,
 })
 export class AppComponent {
-
-  selectionValuesSource = {
-    bob: [`Bob.1`, `Bob.2`, `Bob.3`, `Bob.4`, `Bob.5`],
-    mary: [`Mary.1`, `Mary.2`, `Mary.3`, `Mary.4`, `Mary.5`],
-    sadiq: [`Sadiq.1`, `Sadiq.2`, `Sadiq.3`, `Sadiq.4`, `Sadiq.5`],
-  };
-
-  loadedSelectionValues = {
-    bob: [`Bob.1`, `Bob.2`, `Bob.3`, `Bob.4`, `Bob.5`],
-  };
-
-
-
   columnDefs = [
     {
       field: `key`,
@@ -37,8 +23,6 @@ export class AppComponent {
       field: `selected`,
       editable: true,
       cellEditor: 'lazyLoadingEditor',
-      cellEditorParams: {
-      }
     },
   ];
   rowData = [
